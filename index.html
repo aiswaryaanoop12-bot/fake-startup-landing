@@ -1,0 +1,187 @@
+<!-- FakeStartup Landing Page
+
+Instructions:
+1. Save this file as index.html.
+2. To host on GitHub Pages: create a new repo, push this file to the repo root (or the gh-pages branch), then enable Pages in repo settings. Your site will be at https://<your-username>.github.io/<repo-name>/.
+3. For the assignment: include the hosted link or upload this file + screenshots to your GitHub repo. Example screenshot filenames: hero.png, features.png, signup-modal.png.
+
+Feel free to edit the copy, brand colors or images. This file is intentionally self-contained (no external CSS frameworks) so it works offline.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nimbus — Make Ideas Float</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --glass: rgba(255,255,255,0.06);
+      --accent1: #7c3aed; /* purple */
+      --accent2: #06b6d4; /* teal */
+      --muted: #94a3b8;
+      --card: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --maxw: 1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,var(--bg) 0%, #071022 100%);}
+    .wrap{max-width:var(--maxw);margin:48px auto;padding:24px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:52px;height:52px;background:linear-gradient(135deg,var(--accent1),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 8px 30px rgba(7,10,25,0.6)}
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+    nav{display:flex;gap:12px}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:10px;color:#dbeafe;text-decoration:none;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:white;box-shadow:0 8px 30px rgba(124,58,237,0.18)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;margin-top:18px}
+    .eyebrow{display:inline-block;padding:6px 10px;background:rgba(9,12,20,0.6);border-radius:999px;color:var(--accent2);font-weight:700;font-size:12px}
+    h2{font-size:44px;line-height:1.02;margin:18px 0}
+    p.lead{color:var(--muted);font-size:16px;max-width:58ch}
+    .features-list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+    .feature-pill{display:inline-flex;gap:10px;align-items:center;background:var(--card);padding:10px;border-radius:10px}
+    .feature-pill span{font-weight:700}
+
+    /* Right card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.025);backdrop-filter: blur(6px)}
+    .price{font-size:28px;font-weight:800;margin:6px 0}
+    .small{color:var(--muted);font-size:13px}
+    .cta-row{display:flex;gap:10px;margin-top:16px}
+
+    /* Features grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+    .grid .card{padding:18px}
+    .grid h3{margin:0 0 8px 0}
+    .grid p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{margin-top:44px;padding:18px;border-radius:12px;background:linear-gradient(180deg, transparent, rgba(255,255,255,0.01));display:flex;justify-content:space-between;align-items:center}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center}
+    .modal{background:linear-gradient(180deg,#071026, #06111a);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);width:420px}
+    .modal input, .modal button{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .muted{color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:920px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr);} .wrap{padding:16px}}
+    @media (max-width:520px){.grid{grid-template-columns:1fr}.brand h1{font-size:16px} h2{font-size:28px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">N</div>
+        <div>
+          <h1>Nimbus</h1>
+          <p>Make ideas float</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#features">Features</a>
+        <a class="btn" href="#pricing">Pricing</a>
+        <a class="btn primary" id="openSignup">Get Early Access</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Beta • Invite-only</span>
+        <h2>Ship high-quality ideas faster — without the busywork.</h2>
+        <p class="lead">Nimbus automates the parts of building, testing, and sharing product prototypes so you can focus on the signal — not the noise. From instant templates to realtime feedback loops.</p>
+
+        <div class="features-list">
+          <div class="feature-pill"><span>⚡</span> <div><strong>Instant Prototypes</strong><div class="muted">Set up a working demo in minutes.</div></div></div>
+          <div class="feature-pill"><span>🧠</span> <div><strong>Auto UX Insights</strong><div class="muted">Sentiment + heatmap summaries from testers.</div></div></div>
+          <div class="feature-pill"><span>🔗</span> <div><strong>One-click Sharing</strong><div class="muted">Share test instances with a single link.</div></div></div>
+        </div>
+
+        <div style="margin-top:22px">
+          <a class="btn primary" id="heroCTA">Claim your invite</a>
+          <a class="btn" style="margin-left:8px" href="#learn">Learn more</a>
+        </div>
+
+        <div class="grid" id="features">
+          <div class="card">
+            <h3>Lightning Templates</h3>
+            <p>Choose from starter templates built for marketplaces, social apps, SaaS dashboards and more.</p>
+          </div>
+          <div class="card">
+            <h3>Realtime Feedback</h3>
+            <p>Collect micro-surveys and session replays that auto-summarize tester sentiment.</p>
+          </div>
+          <div class="card">
+            <h3>Developer Friendly</h3>
+            <p>Export clean code, or use our SDK to integrate testing into your CI pipeline.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div class="small">Early Access</div>
+          <div class="price">Free • Limited</div>
+          <div class="small">Join the first 2,000 makers and get lifetime perks.</div>
+
+          <div class="cta-row">
+            <a class="btn primary" id="sideCTA">Request Invite</a>
+            <a class="btn" href="#pricing">See plans</a>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:16px 0">
+          <div class="small muted">Trusted by early teams at Garage, Arcana & MoonDrop — built by ex-designers and engineers from tiny startups.</div>
+        </div>
+      </aside>
+    </section>
+
+    <footer id="pricing">
+      <div>
+        <strong>Ready to float your idea?</strong>
+        <div class="muted">Sign up for early access and a chance to get a free growth session with our team.</div>
+      </div>
+      <div>
+        <a class="btn primary" id="footCTA">Get Invite</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h2 id="modalTitle">Request your invite</h2>
+      <p class="muted">We’ll notify you when your invite is ready. No spam.</p>
+      <form id="signupForm" style="margin-top:12px">
+        <input id="name" placeholder="Your name" required />
+        <input id="email" placeholder="Email address" style="margin-top:8px" type="email" required />
+        <button class="btn primary" style="margin-top:12px" type="submit">Request Invite</button>
+      </form>
+      <p class="muted" style="margin-top:8px">Or email us at <strong>hello@nimbus.example</strong></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const openButtons = ['openSignup','heroCTA','sideCTA','footCTA','openSignup'];
+    openButtons.forEach(id=>document.getElementById(id).addEventListener('click',()=>{modal.style.display='flex'}));
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none' });
+    document.getElementById('signupForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value || 'Friend';
+      const email = document.getElementById('email').value || 'you@you.com';
+      // Simulate success — in real site you'd call an API
+      alert(Thanks ${name}! We'll email ${email} when your invite is ready.);
+      modal.style.display='none';
+    });
+  </script>
+</body>
+</html>
